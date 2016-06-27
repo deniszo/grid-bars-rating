@@ -1,0 +1,30 @@
+.grid {
+    display: block;
+    text-align: justify;
+    margin: 20px 0;
+}
+
+.grid * {
+    box-sizing: border-box;
+}
+
+.grid .grid-item {
+    display: inline-block;
+    height: 40px;
+    width: 20px;
+    background-color: #999;
+    margin: 0 5px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+
+    -webkit-transition: background-color 200ms linear;
+    -moz-transition: background-color 200ms linear;
+    -o-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
+}
+
+.grid-item.selected {
+    background-color: #333;
+}

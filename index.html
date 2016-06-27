@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<ul class="grid">
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+</ul>
+<ul class="grid">
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+</ul>
+<ul class="grid">
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+    <li class="grid-item"></li>
+</ul>
+<script src="GridBars.js"></script>
+<script>
+    var bars = [].slice.call(document.querySelectorAll('.grid')).map(function(item) {
+        return new GridBar(item);
+    });
+</script>
+</body>
+</html>
