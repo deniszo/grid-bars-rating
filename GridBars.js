@@ -48,7 +48,7 @@ function GridBar(config) {
         setValue(__currentValue);
     }
 
-    __CONTAINER.onmouseover = mouseOverHandler;
-    __CONTAINER.onclick = mouseClickHandler;
-    __CONTAINER.onmouseleave = mouseLeaveHandler;
+    __CONTAINER.addEventListener('mouseover', mouseOverHandler);
+    __CONTAINER.addEventListener('click', mouseClickHandler);
+    __CONTAINER.addEventListener('mouseleave', mouseLeaveHandler);
 }
