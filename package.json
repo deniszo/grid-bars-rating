@@ -1,0 +1,22 @@
+{
+  "name": "grid-bars-rating",
+  "version": "0.1.0",
+  "description": "VanillaJS grid rating question",
+  "main": "GridBars.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faliah/grid-bars-rating.git"
+  },
+  "author": "faliah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/faliah/grid-bars-rating/issues"
+  },
+  "homepage": "https://github.com/faliah/grid-bars-rating#readme",
+  "devDependencies": {
+    "eslint": "^2.13.1"
+  }
+}

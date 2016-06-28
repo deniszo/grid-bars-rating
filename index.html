@@ -39,7 +39,7 @@
 <script src="GridBars.js"></script>
 <script>
     var bars = [].slice.call(document.querySelectorAll('.grid')).map(function(item) {
-        return new GridBar(item);
+        return new GridBar({ container: item });
     });
 </script>
 </body>

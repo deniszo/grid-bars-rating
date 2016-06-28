@@ -1,63 +1,54 @@
-'use strict';
+function GridBar(config) {
 
-var Helpers = {
-    removeClass: function(node, className) {
-        node.className = node.className.replace(' ' + className, '');
-    },
+    if (!config.container || !(config.container instanceof Node)) {
+        console.error('GridBar needs a correct container selector specified in config.container');
+        return;
+    }
 
-    addClass: function (node, className) {
-        node.className += ' ' + className;
-    },
+    var __CONTAINER = config.container,
+        __BARS = [].slice.call(__CONTAINER.querySelectorAll('.grid-item')),
+        __currentValue = -1;
 
-    isGridItem: function(node) {
+    function removeClass(node) {
+        node.className = node.className.replace(' selected', '');
+    }
+
+    function addClass(node) {
+        if (node.className.indexOf('selected') == -1) node.className += ' selected';
+    }
+
+    function isGridItem(node) {
         return node.className.indexOf('grid-item') != -1;
     }
-};
 
-function GridBar(container) {
-    var _CONTAINER = container,
-        _BARS = [].slice.call(_CONTAINER.querySelectorAll('.grid-item')),
-        _selectedBars = [],
-        _currentValue = null;
-
-    this.setValue = function(node) {
-        _currentValue = node;
-        this.setSelected(null);
-    };
-
-    this.setSelected = function(node) {
-
-        var value = node || _currentValue;
-
-        _BARS.forEach(function(item, i, arr) {
-            Helpers.removeClass(item, 'selected');
+    function setValue(value) {
+        var elIndex = __BARS.indexOf(value);
+        __BARS.forEach(function(el, i) {
+            if (i > elIndex) {
+                removeClass(el);
+            } else {
+                addClass(el);
+            }
         });
+    }
 
-        _selectedBars = _BARS.slice(0, _BARS.indexOf(value) + 1);
+    function mouseOverHandler(e) {
+        if (isGridItem(e.target)) {
+            setValue(e.target);
+        }
+    }
 
-        _selectedBars.forEach(function(item, i, arr) {
-            Helpers.addClass(item, 'selected');
-        });
-    };
+    function mouseClickHandler(e) {
+        if (isGridItem(e.target)) {
+            __currentValue = e.target;
+        }
+    }
 
-    _CONTAINER.onmouseover = this.mouseOver.bind(this);
-    _CONTAINER.onclick = this.mouseClick.bind(this);
-    _CONTAINER.onmouseleave = this.mouseLeave.bind(this);
+    function mouseLeaveHandler(e) {
+        setValue(__currentValue);
+    }
+
+    __CONTAINER.onmouseover = mouseOverHandler;
+    __CONTAINER.onclick = mouseClickHandler;
+    __CONTAINER.onmouseleave = mouseLeaveHandler;
 }
-
-GridBar.prototype.mouseOver = function(e) {
-    if (Helpers.isGridItem(e.target)) {
-        this.setSelected(e.target);
-    }
-};
-
-GridBar.prototype.mouseClick = function(e) {
-    if (Helpers.isGridItem(e.target)) {
-        this.setValue(e.target);
-    }
-};
-
-GridBar.prototype.mouseLeave = function(e) {
-    this.setSelected();
-};
-
