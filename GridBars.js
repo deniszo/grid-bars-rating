@@ -5,6 +5,16 @@ function GridBar(config) {
         return;
     }
 
+    if (config.answers && !(config.answers instanceof Array)) {
+        console.error('GridBar needs a correct answers Array specified in config.answers');
+        return;
+    }
+
+    if (config.onSetValue && !(config.onSetValue instanceof Function)) {
+        console.error('GridBar needs a correct onSetValue callback function specified in config.onSetValue');
+        return;
+    }
+
     var __CONTAINER = config.container,
         __onSetValue = config.onSetValue || function(value) { console.log(value) },
         __ANSWERS = config.answers || "0,1,2,3,4,5,6,7,8,9,10".split(','),

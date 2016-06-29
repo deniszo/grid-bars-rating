@@ -6,32 +6,34 @@ html {
 *:before,
 *:after {
     box-sizing: inherit;
+    padding: 0;
 }
 
 .grid {
     display: block;
-    text-align: justify;
-    margin: 20px 0;
+    width: 100%;
+    margin: 20px auto;
 }
 
 .grid__item {
     display: inline-block;
     height: 40px;
-    background-color: #999;
-    margin: 0 5px;
-    border: 1px solid #333;
+    color: #fff;
+    background-color: #232323;
+    margin: 0 8px;
+    border: 1px solid #fff;
     border-radius: 5px;
     cursor: pointer;
-    padding: 8px;
+    padding: 8.5px;
+    font-weight: bold;
 
-    -webkit-transition: background-color 200ms linear;
-    -moz-transition: background-color 200ms linear;
-    -o-transition: background-color 200ms linear;
-    -ms-transition: background-color 200ms linear;
-    transition: background-color 200ms linear;
+    -webkit-transition: background-color 150ms linear;
+    -moz-transition: background-color 150ms linear;
+    -o-transition: background-color 150ms linear;
+    -ms-transition: background-color 150ms linear;
+    transition: background-color 150ms linear;
 }
 
 .grid__item--selected {
-    background-color: #333;
-    color: #aaa;
+    background-color: #ff7813;
 }
