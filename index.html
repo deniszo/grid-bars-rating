@@ -6,41 +6,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<ul class="grid">
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-</ul>
-<ul class="grid">
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-</ul>
-<ul class="grid">
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-    <li class="grid-item"></li>
-</ul>
+<div class="popup">
+    <div class="popup__top-bar"></div>
+    <div class="popup__content">
+        <div class="question">
+            <div class="question__text-content"></div>
+            <div class="question__controls">
+                <ul class="grid">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="popup__bottom-bar"></div>
+</div>
 <script src="GridBars.js"></script>
 <script>
-    var bars = [].slice.call(document.querySelectorAll('.grid')).map(function(item) {
-        return new GridBar({ container: item });
+
+    var bar = new GridBar({
+        container: document.querySelector('.grid'),
+        answers: ['0', '1', '2', 'Ololo'],
+        onSetValue: function(value) {
+            console.log('Updated callback ->', value);
+        }
     });
+
 </script>
 </body>
 </html>

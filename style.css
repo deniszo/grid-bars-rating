@@ -1,22 +1,28 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
 .grid {
     display: block;
     text-align: justify;
     margin: 20px 0;
 }
 
-.grid * {
-    box-sizing: border-box;
-}
-
-.grid .grid-item {
+.grid__item {
     display: inline-block;
     height: 40px;
-    width: 20px;
     background-color: #999;
     margin: 0 5px;
     border: 1px solid #333;
     border-radius: 5px;
     cursor: pointer;
+    padding: 8px;
 
     -webkit-transition: background-color 200ms linear;
     -moz-transition: background-color 200ms linear;
@@ -25,6 +31,7 @@
     transition: background-color 200ms linear;
 }
 
-.grid-item.selected {
+.grid__item--selected {
     background-color: #333;
+    color: #aaa;
 }
